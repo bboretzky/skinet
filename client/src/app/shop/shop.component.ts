@@ -13,11 +13,11 @@ import { IPagination } from '../shared/models/pagination';
   styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit {
-  @ViewChild('search', { static: true }) searchTerm!: ElementRef;
+  @ViewChild('search', { static: false }) searchTerm!: ElementRef;
 
-  products: IProduct[] | undefined = [];
-  brands: IBrand[] = [];
-  types: IType[] = [];
+  products: IProduct[] | undefined;
+  brands: IBrand[] | undefined;
+  types: IType[] | undefined;
   shopParams = new ShopParams();
   totalCount = 0;
   sortOptions = [

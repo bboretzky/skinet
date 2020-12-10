@@ -28,7 +28,7 @@ namespace Infrastructure.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");

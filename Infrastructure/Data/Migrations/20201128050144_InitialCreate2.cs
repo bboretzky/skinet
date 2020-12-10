@@ -26,7 +26,6 @@ namespace Infrastructure.Data.Migrations
             migrationBuilder.AlterColumn<string>(
                 name: "Description",
                 table: "Products",
-                maxLength: 180,
                 nullable: false,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)",

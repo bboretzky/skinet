@@ -1,3 +1,4 @@
+import { Observable, of } from 'rxjs';
 import { AccountService } from './account/account.service';
 import { BasketService } from './basket/basket.service';
 import { Component, OnInit } from '@angular/core';
@@ -23,7 +24,7 @@ export class AppComponent implements OnInit {
   loadCurrentUser() {
     const token = localStorage.getItem('token');
 
-    this.accountService.loadCurrentUser(token).subscribe(
+    this.accountService.loadCurrentUser(token)?.subscribe(
       () => {
         console.log('loaded user');
       },

@@ -1,5 +1,5 @@
 import { IUser } from './../shared/models/user';
-import { BehaviorSubject, of, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, of, ReplaySubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -16,10 +16,9 @@ export class AccountService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  loadCurrentUser(token: string | null) {
+  loadCurrentUser(token: string | null): null | Observable<void> {
     if (token === null) {
       this.currentUserSource.next(null);
-      return of(null);
     }
 
     let headers = new HttpHeaders();

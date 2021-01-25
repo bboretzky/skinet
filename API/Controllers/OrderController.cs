@@ -51,6 +51,7 @@ namespace API.Controllers
             return Ok(_mapper.Map<IReadOnlyList<Order>, IReadOnlyList<OrderToReturnDto>>(orders));
         }
 
+
         [HttpGet("{id}")]
         public async Task<ActionResult<OrderToReturnDto>> GetOrderByIdForUser(int id)
         {
@@ -63,13 +64,16 @@ namespace API.Controllers
                 return NotFound(new ApiResponse(404));
             }
 
-            return Ok(_mapper.Map<Order, OrderToReturnDto>(order));
+            return _mapper.Map<Order, OrderToReturnDto>(order);
         }
 
-        [HttpGet("{deliveryMethods}")]
+
+
+        [HttpGet("deliveryMethods")]
         public async Task<ActionResult<IReadOnlyList<DeliveryMethod>>> GetDeliveryMethods()
         {
             return Ok(await _orderService.GetDeliveryMethodsAsync());
         }
+
     }
 }

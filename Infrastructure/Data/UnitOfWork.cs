@@ -42,7 +42,7 @@ namespace Infrastructure.Data
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            _context.Dispose();
         }
 
     }
